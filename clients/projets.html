@@ -1,0 +1,21 @@
+{% extends 'artyprod/base.html' %}
+
+{% block content %}
+  <h1>Liste des projets</h1>
+
+  {% if projets %}
+    <ul>
+      {% for projet in projets %}
+        <li>
+          <h2>{{ projet.libelle }}</h2>
+          <p>{{ projet.description }}</p>
+          {% for image in projet.galerieprojet_set.all %}
+    <img src="{{ image.media.url }}" alt="{{ image.legende }}">
+{% endfor %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun projet disponible pour le moment.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'artyprod/navbar.html' %}
+
+{% block content %}
+
+{% if success %}
+    <div class="alert alert-success" role="alert">
+        Project request submitted successfully.
+    </div>
+{% endif %}
+
+<h2>Project Requests</h2>
+
+{% if demandes_projet %}
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th scope="col">Nom projet</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date de création</th>
+                <th scope="col">Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for demande_projet in demandes_projet %}
+                <tr>
+                    
+                    <td>{{ demande_projet.nom_projet }}</td>
+                    <td>{{ demande_projet.description }}</td>
+                    <td>{{ demande_projet.date_creation }}</td>
+                    <td>{{ demande_projet.statut }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No project requests found.</p>
+{% endif %}
+
+<hr>
+
+<h2>Create a Project Request</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="nom_projet">Nom du projet</label>
+        <input type="text" class="form-control" id="nom_projet" name="nom_projet" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

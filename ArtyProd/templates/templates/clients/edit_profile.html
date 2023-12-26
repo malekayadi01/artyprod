@@ -1,0 +1,21 @@
+{% extends 'artyprod/navbar.html' %}
+
+{% block content %}
+{% if success %}
+    <div class="alert alert-success" role="alert">
+        Project request submitted successfully.
+    </div>
+{% endif %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2 class="mb-3">Modifier votre profil</h2>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ client_form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Mettre à jour</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

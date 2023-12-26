@@ -1,0 +1,45 @@
+
+
+{% extends 'artyprod/navbar.html' %}
+{% load static %}
+{% block title %} ArtyProd - Services de design graphique, messageion audiovisuelle et conception 3D {% endblock %}
+
+
+{% block styles %}
+<link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/style.css'%}">
+ {% endblock %}
+
+
+{% block content %}
+    <main>
+      <section class="services">
+        <h2>Nos services</h2>
+        <ul>
+          <li>
+            <h3>Design graphique</h3>
+            <p>Nous créons des designs graphiques pour tous vos supports de communication, de la charte graphique à la création de flyers, affiches, logos, etc.</p>
+          </li>
+          <li>
+            <h3>Production audiovisuelle</h3>
+            <p>Nous réalisons des vidéos pour vos événements, vos présentations d'entreprise, vos publicités, etc.</p>
+          </li>
+          <li>
+            <h3>Conception 3D</h3>
+            <p>Nous concevons des modèles 3D pour vos projets d'architecture, de design de produit, d'animation, etc.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="portfolio">
+        <h2>Notre portfolio</h2>
+        <ul>
+          <li><img src="/static/images/projet1.jpg" alt="Projet 1"></li>
+          <li><img src="/static/images/projet2.jpg" alt="Projet 2"></li>
+          <li><img src="/static/images/projet3.jpg" alt="Projet 3"></li>
+        </ul>
+      </section>
+
+   
+    </main>
+
+    {% endblock %}

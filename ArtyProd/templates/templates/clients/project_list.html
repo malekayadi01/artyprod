@@ -1,0 +1,25 @@
+{% extends 'artyprod/navbar.html' %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project List</title>
+</head>
+<body>
+    <h1>Project List</h1>
+    <ul>
+        {% for project in projects %}
+        <li>
+            <h3>{{ project.libelle }}</h3>
+            <p>{{ project.description }}</p>
+            <!-- Display other project details as needed -->
+        </li>
+        {% empty %}
+        <li>No projects found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

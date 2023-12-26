@@ -1,0 +1,24 @@
+{% for projet in projets %}
+  <h3>{{ projet.libelle }}</h3>
+  <p>{{ projet.description }}</p>
+  <p>Start Date: {{ projet.date_debut }}</p>
+  <p>End Date: {{ projet.date_fin }}</p>
+  
+  {% if not projet.rating %}
+    <form method="post" action="{% url 'submit_rating' %}">
+      {% csrf_token %}
+      <input type="hidden" name="projet_id" value="{{ projet.id }}">
+      <label for="rating">Rate the project:</label>
+      <select name="rating" id="rating">
+        <option value="1">1 star</option>
+        <option value="2">2 stars</option>
+        <option value="3">3 stars</option>
+        <option value="4">4 stars</option>
+        <option value="5">5 stars</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  {% else %}
+    <p>Your rating: {{ projet.rating }} stars</p>
+  {% endif %}
+{% endfor %}

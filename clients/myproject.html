@@ -1,0 +1,20 @@
+{% extends 'artyprod/base.html' %}
+
+{% block content %}
+  <h1>Mes projets</h1>
+  <ul>
+    {% for projet in projets %}
+      <li>
+        <h2>{{ projet.libelle }}</h2>
+        <p>{{ projet.description }}</p>
+        <p>Date de début : {{ projet.date_debut }}</p>
+        <p>Date de fin : {{ projet.date_fin }}</p>
+        <p>Achevé : {% if projet.acheve %}Oui{% else %}Non{% endif %}</p>
+        <p>Équipe : {{ projet.equipe }}</p>
+        <p>Note moyenne : {{ projet.rating }}</p>
+      </li>
+    {% empty %}
+      <li>Aucun projet pour le moment.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

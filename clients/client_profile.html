@@ -1,0 +1,20 @@
+{% extends 'artyprod/base.html' %}
+
+
+{% block content %}
+  <h1>Client Profile</h1>
+  
+  <div class="card" style="width: 500px;">
+    <img src="{{ client.Img.url }}" height="250px " class="card-img-top" alt="Client Image">
+    <div class="card-body">
+      <h5 class="card-title">Nom: {{ client.nom }}</h5>
+      <p class="card-text">Adresse: {{ client.adresse }}</p>
+      <p class="card-text">Téléphone: {{ client.telephone }}</p>
+      <p class="card-text">Email: {{ client.email }}</p>
+    </div>
+    <a href="{% url 'edit_profile' %}">profileClient</a>
+  </div>
+  
+  <!-- Ajoutez d'autres cartes pour afficher d'autres champs de données du client ici -->
+  
+{% endblock %}
